@@ -208,72 +208,112 @@ This file is generated from repository truth and bounded for the web channel. It
     "acceptance": {
       "policy": "solution-admission-v1"
     },
-    "aliases": [],
+    "aliases": [
+      "Open Problem Garden OPG-146"
+    ],
     "allowed_axioms": [
-      "none"
+      "finite-graph-basic",
+      "finite-combinatorics"
     ],
     "assumptions": [
-      "This record must never be treated as an active research problem."
+      "All graphs and digraphs are finite and simple unless the statement explicitly says otherwise."
     ],
     "constraints": {
       "allowed_adapters": [
-        "template-validation-v1"
+        "edge-partition-cut-checker-v1",
+        "lean-obligation-v1"
       ],
       "allowed_methods": [
-        "discovery"
+        "discovery",
+        "derivation",
+        "computation",
+        "proof",
+        "formalization"
       ],
-      "max_attempts": 1,
+      "max_attempts": 20,
       "runtime": {
-        "max_output_bytes": 65536,
-        "max_retries": 1,
-        "max_transitions": 10,
-        "timeout_seconds": 60
+        "max_output_bytes": 5242880,
+        "max_retries": 3,
+        "max_transitions": 300,
+        "timeout_seconds": 1800
       }
     },
-    "created_at": "2026-09-06T00:00:00Z",
+    "created_at": "2026-09-06T04:47:54Z",
     "definitions": [
       {
-        "definition": "A non-admitted draft record used only to validate the physical public repository template.",
-        "term": "template placeholder"
+        "definition": "A graph remains connected after deletion of any set of fewer than k edges.",
+        "term": "k-edge-connected"
+      },
+      {
+        "definition": "A and B are disjoint edge sets whose union is E(G).",
+        "term": "edge partition E(G)=A⊔B"
+      },
+      {
+        "definition": "The spanning subgraph of G with vertex set V(G) and edge set A.",
+        "term": "(V(G),A)"
       }
     ],
     "domain": {
-      "description": "Template-only placeholder domain; not a mathematical research question.",
+      "description": "Finite simple graphs with prescribed edge-connectivity and spanning edge partitions.",
       "objects": [
-        "template-placeholder"
+        "edge-connected graph",
+        "edge partition",
+        "spanning subgraph"
       ]
     },
-    "lifecycle": "draft",
+    "lifecycle": "active",
     "msc": [
-      "00A00"
+      "05C40"
     ],
-    "problem_id": "problem:template-placeholder",
+    "problem_id": "problem:opg-146-edge-connectivity-partition",
     "quantifiers": [
       {
-        "domain": "a reviewed public canonical ProblemContract supplied by the repository builder",
-        "kind": "find",
+        "domain": "positive integers",
+        "kind": "forall",
         "variables": [
-          "replacement_problem"
+          "a",
+          "b"
+        ]
+      },
+      {
+        "domain": "finite simple (a+b+2)-edge-connected graphs",
+        "kind": "forall",
+        "variables": [
+          "G"
+        ]
+      },
+      {
+        "domain": "partitions E(G)=A⊔B with the stated spanning edge-connectivities",
+        "kind": "exists",
+        "variables": [
+          "A",
+          "B"
         ]
       }
     ],
     "schema_version": "1.0.0",
     "sources": [
       {
-        "retrieved_at": "2026-09-06T00:00:00Z",
-        "source": "Vibe Mathing public Web Harness",
-        "source_record_id": "public-template-placeholder-v1",
-        "url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
+        "retrieved_at": "2026-09-02T00:06:43Z",
+        "source": "UnsolvedMath",
+        "source_record_id": "unsolvedmath-opg-146-a6effb14b00b",
+        "url": "https://www.unsolvedmath.com/problems/OPG-146"
+      },
+      {
+        "retrieved_at": "2026-09-06T04:47:54Z",
+        "source": "current-status-review",
+        "source_record_id": null,
+        "url": "https://garden.irmacs.sfu.ca/op/partitioning_edge_connectivity"
       }
     ],
     "statement": {
       "language": "en",
-      "text": "This is a non-research placeholder. Replace it with exactly one reviewed public ProblemContract before creating a public problem repository.",
+      "text": "For all positive integers a and b, can the edge set of every finite (a+b+2)-edge-connected graph G be partitioned as E(G)=A⊔B so that (V(G),A) is a-edge-connected and (V(G),B) is b-edge-connected?",
       "version": 1
     },
-    "title": "Vibe Mathing public problem repository template placeholder",
-    "updated_at": "2026-09-06T00:00:00Z"
+    "title": "Partitioning edge-connectivity",
+    "updated_at": "2026-09-06T04:47:54Z"
   },
-  "problem_contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940"
+  "problem_contract_sha256": "4097218424a890b21010f1fcddf1f860e062385e13cf45b3a9c743ea0bf4885b"
 }
 ```
